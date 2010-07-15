@@ -850,7 +850,7 @@ struct ANPCanvas {
 
 ANPCanvas*  canvas_impl_newCanvas(ANPBitmap *bitmap) {
     ANPCanvas *result = new ANPCanvas;
-    notice("bitmap: %p width:%d height:%d baseAddr:%p rowBytes:%d format:%d", bitmap, bitmap->width, bitmap->height, bitmap->baseAddr, bitmap->rowBytes, bitmap->format);
+    err("canvas_impl_newCanvas bitmap: %p width:%d height:%d baseAddr:%p rowBytes:%d format:%d", bitmap, bitmap->width, bitmap->height, bitmap->baseAddr, bitmap->rowBytes, bitmap->format);
     
     //_assert(bitmap->format == kRGBA_8888_ANPBitmapFormat);
     if(bitmap->format != kRGBA_8888_ANPBitmapFormat) {
@@ -1154,6 +1154,7 @@ bool surface_impl_lock(JNIEnv* env, jobject surface, ANPBitmap* bitmap, ANPRectI
     bitmap->height = sfc ? IOSurfaceGetHeight(sfc) : 0;
     bitmap->rowBytes = bitmap->width * 4;
     locked = true;
+    err("surface_impl_lock bitmap: %p width:%d height:%d baseAddr:%p rowBytes:%d format:%d", bitmap, bitmap->width, bitmap->height, bitmap->baseAddr, bitmap->rowBytes, bitmap->format);
     return true;
 }
 

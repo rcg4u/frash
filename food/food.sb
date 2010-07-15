@@ -3,8 +3,6 @@
 (deny default)
 (debug deny)
 
-(allow iokit-open)
-
 (allow mach-lookup
     (global-name "com.apple.mediaserverd")
     (global-name "com.apple.audio.AudioQueueServer")
