@@ -49,3 +49,6 @@
 
 (allow network*)
 
+(allow iokit-open
+    (iokit-user-client-class #"IOSurfaceRootUserClient")
+    )
